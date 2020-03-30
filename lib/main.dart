@@ -17,45 +17,55 @@ class SliderDemo extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: ListView(
             children: <Widget>[
+              //Basic Slider 1 [Right]
               _DemoLink(
-                text:'Basic Slider 1 [Right]',
+                text:'Slider Demo 1',
                 demo: Slider1(),
               ),
+              //Basic Slider 2 [Left]
               _DemoLink(
-                text: 'Basic Slider 2 [Left]',
+                text: 'Slider Demo 2',
                 demo: Slider2(),
               ),
-              _FigmaLink(
-                text: 'Basic Slider 3 [Error]',
-                urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=31%3A2&viewport=-481%2C7101%2C1.0553679466247559&scaling=contain',
-              ),
+              // Discrete Slider 1 [Rounding]
               _DemoLink(
-                text: 'Discrete Slider 1 [Rounding]',
+                text: 'Slider Demo 3',
                 demo: DiscreteSlider1(),
               ),
-              _FigmaLink(
-                text: 'Discrete Slider 2 [Error - Figma]',
-                urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=59%3A5&viewport=466%2C556%2C0.125&scaling=contain',
-              ),
+              // Range Slider 1
               _DemoLink(
-                text: 'Range Slider 1',
+                text: 'Slider Demo 4',
                 demo: RangeSlider1(),
               ),
+              // Basic Slider 6 [Delay]
+              _DemoLink(
+                text: 'Slider Demo 5',
+                demo: Slider6(),
+              ),
+              // Basic Slider 3 [Error]
               _FigmaLink(
-                text: 'Range Slider 2 [Error]',
+                text: 'Slide Show 1',
+                urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=31%3A2&viewport=-481%2C7101%2C1.0553679466247559&scaling=contain',
+              ),
+              // Discrete Slider 2 [Error - Figma]
+              _FigmaLink(
+                text: 'Slide Show 2',
+                urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=59%3A5&viewport=466%2C556%2C0.125&scaling=contain',
+              ),
+              //Range Slider 2 [Error]
+              _FigmaLink(
+                text: 'Slide Show 3',
                 urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=36%3A260&viewport=1247%2C629%2C0.21958981454372406&scaling=contain',
               ),
+              // Basic Slider 4 [Large]
               _FigmaLink(
-                text: 'Basic Slider 4 [Large]',
+                text: 'Slide Show 4',
                 urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=42%3A0&viewport=-139%2C536%2C0.5821874737739563&scaling=contain',
               ),
+              // Basic Slider 5 [Chunking]
               _FigmaLink(
-                text: 'Basic Slider 5 [Chunking]',
+                text: 'Slide Show 5',
                 urlLaunch: 'https://www.figma.com/proto/gOBx7XCSgdeiNzpoCwjmyz/Slider-Text-Field-Prototype?node-id=51%3A421&viewport=496%2C432%2C0.107962965965271&scaling=contain',
-              ),
-              _DemoLink(
-                text: 'Basic Slider 6 [Delay]',
-                demo: Slider6(),
               ),
             ],
           ),
@@ -78,7 +88,7 @@ class _Slider1State extends State<Slider1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Basic Slider 1 [Right]'),
+        title: Text('Slider Demo 1'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -127,7 +137,7 @@ class _Slider2State extends State<Slider2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Basic Slider 2 [Left]'),
+        title: Text('Slider Demo 2'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -176,7 +186,7 @@ class _DiscreteSlider1State extends State<DiscreteSlider1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Discrete Slider 1 [Rounding]'),
+        title: Text('Slider Demo 3'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -235,7 +245,7 @@ class _RangeSlider1State extends State<RangeSlider1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Range Slider 1'),
+        title: Text('Slider Demo 4'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -321,7 +331,7 @@ class _Slider6State extends State<Slider6> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Basic Slider 6 [Delay]'),
+        title: Text('Slider Demo 5'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(32),
@@ -343,6 +353,7 @@ class _Slider6State extends State<Slider6> {
                 ),
                 SizedBox(
                   child: SliderTextField(
+                    textChangeTimeout: const Duration(milliseconds: 500),
                     onChanged: (double value){
                       setState(() {
                         _continuousValue1 = value;
@@ -370,7 +381,7 @@ class _Slider6State extends State<Slider6> {
                 ),
                 SizedBox(
                   child: SliderTextField(
-                    textChangeTimeout: const Duration(seconds:4),
+                    textChangeTimeout: const Duration(milliseconds:1000),
                     onChanged: (double value){
                       setState(() {
                         _continuousValue2 = value;
@@ -398,7 +409,7 @@ class _Slider6State extends State<Slider6> {
                 ),
                 SizedBox(
                   child: SliderTextField(
-                    textChangeTimeout: const Duration(seconds:8),
+                    textChangeTimeout: const Duration(milliseconds:2000),
                     onChanged: (double value){
                       setState(() {
                         _continuousValue3 = value;
@@ -426,7 +437,7 @@ class _Slider6State extends State<Slider6> {
                 ),
                 SizedBox(
                   child: SliderTextField(
-                    textChangeTimeout: const Duration(seconds:10),
+                    textChangeTimeout: const Duration(milliseconds:3000),
                     onChanged: (double value){
                       setState(() {
                         _continuousValue4 = value;
